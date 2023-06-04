@@ -22,6 +22,7 @@ class SignupController extends Controller
             'password' => 'required|min:6|max:12',
             'alamat_akun' => 'required|min:3|max:30',
             'nama_akun' => 'required|min:3|max:20',
+            'role_id' => 'required|in:1,2,3'
         ]);
 
         $validatedData['password'] = bcrypt($validatedData['password']);

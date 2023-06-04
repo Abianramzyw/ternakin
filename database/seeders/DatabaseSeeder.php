@@ -3,6 +3,16 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Datatransaksi;
+use App\Models\Hasilternak;
+use App\Models\Juduljadwal;
+use App\Models\Kondisiternak;
+use App\Models\Laporanprogress;
+use App\Models\Pembayarantransaksi;
+use App\Models\Penjadwalanternak;
+use App\Models\Produkternak;
+use App\Models\Role;
+use App\Models\Statuskesehatan;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Jenisternak;
@@ -30,7 +40,9 @@ class DatabaseSeeder extends Seeder
             'nama_akun' => 'Abian',
             'email_akun' => 'ramzy@gmail.com',
             'alamat_akun' => 'Bwz',
-            'password' => bcrypt('wijaya')
+            'password' => bcrypt('wijaya'),
+            'role_id' => '2',
+            'slug' => 'abian'
         ]);
 
         // User::create([
@@ -75,38 +87,110 @@ class DatabaseSeeder extends Seeder
 
         // ]);
 
+        ///////////////////////////////////////////////////////////
         Jenisternak::create([
-            'nama_jenis_ternak' => 'Sapi'
+            'nama_jenis_ternak' => 'Kambing',
+            'slug' => 'kambing'
+        ]);
+        Jenisternak::create([
+            'nama_jenis_ternak' => 'Domba',
+            'slug' => 'domba'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Statusterjual::create([
+            'nama_status_terjual' => 'Ada',
+            'slug' => 'ada'
+        ]);
+        Statusterjual::create([
+            'nama_status_terjual' => 'Terjual',
+            'slug' => 'terjual'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Role::create([
+            'nama_role' => 'User',
+            'slug' => 'user'
+        ]);
+        Role::create([
+            'nama_role' => 'Peternak',
+            'slug' => 'peternak'
+        ]);
+        Role::create([
+            'nama_role' => 'Dinas Ketahanan Pangan dan Peternakan',
+            'slug' => 'dinas-ketahanan-pangan-dan-ternak'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Jeniskelamin::create([
+            'nama_jenis_kelamin' => 'Jantan',
+            'slug' => 'jantan'
         ]);
 
-        Jenisternak::create([
-            'nama_jenis_ternak' => 'Kambing'
+        Jeniskelamin::create([
+            'nama_jenis_kelamin' => 'Betina',
+            'slug' => 'betina'
         ]);
-
-        Jenisternak::create([
-            'nama_jenis_ternak' => 'Domba'
+        ///////////////////////////////////////////////////////////
+        Juduljadwal::create([
+            'nama_judul_jadwal' => 'Vaksinasi',
+            'slug' => 'vaksinasi'
         ]);
-
-        // Jeniskelamin::create([
-        //     'nama_jenis_kelamin' => 'Jantan'
-        // ]);
-
-        // Jeniskelamin::create([
-        //     'nama_jenis_kelamin' => 'Betina'
-        // ]);
-
-        // Statusterjual::create([
-        //     'nama_status_terjual' => 'Ada'
-        // ]);
-
-        // Statusterjual::create([
-        //     'nama_status_terjual' => 'Terjual'
-        // ]);
-
-
-
-        User::factory(5)->create();
-
+        Juduljadwal::create([
+            'nama_judul_jadwal' => 'Masa Subur',
+            'slug' => 'masa-subur'
+        ]);
+        Juduljadwal::create([
+            'nama_judul_jadwal' => 'Pemeriksaan Rutin',
+            'slug' => 'pemeriksaan-rutin'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Hasilternak::create([
+            'nama_hasil_ternak' => 'Daging',
+            'slug' => 'daging'
+        ]);
+        Hasilternak::create([
+            'nama_hasil_ternak' => 'Kulit',
+            'slug' => 'kulit'
+        ]);
+        Hasilternak::create([
+            'nama_hasil_ternak' => 'Tulang',
+            'slug' => 'tulang'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Statuskesehatan::create([
+            'nama_status_kesehatan' => 'Vaksinasi',
+            'slug' => 'vaksinasi'
+        ]);
+        Statuskesehatan::create([
+            'nama_status_kesehatan' => 'Masa Subur',
+            'slug' => 'masa-subur'
+        ]);
+        Statuskesehatan::create([
+            'nama_status_kesehatan' => 'Pemeriksaan Rutin',
+            'slug' => 'pemeriksaan-rutin'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Kondisiternak::create([
+            'nama_kondisi_ternak' => 'Sehat',
+            'slug' => 'sehat'
+        ]);
+        Kondisiternak::create([
+            'nama_kondisi_ternak' => 'Sakit',
+            'slug' => 'sakit'
+        ]);
+        ///////////////////////////////////////////////////////////
         Dataternak::factory(50)->create();
+        ///////////////////////////////////////////////////////////
+        User::factory(5)->create();
+        ///////////////////////////////////////////////////////////
+        Penjadwalanternak::factory(50)->create();
+        ///////////////////////////////////////////////////////////
+        Laporanprogress::factory(50)->create();
+        ///////////////////////////////////////////////////////////
+        Produkternak::factory(50)->create();
+        ///////////////////////////////////////////////////////////
+        Datatransaksi::factory(3)->create();
+        ///////////////////////////////////////////////////////////
+        Pembayarantransaksi::factory(3)->create();
+        ///////////////////////////////////////////////////////////
+
     }
 }

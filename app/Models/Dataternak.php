@@ -2,8 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Role;
+use App\Models\User;
+use App\Models\Hasilternak;
+use App\Models\Jenisternak;
+use App\Models\Juduljadwal;
+use App\Models\Jeniskelamin;
+use App\Models\Kondisiternak;
+use App\Models\Statusterjual;
+use App\Models\Laporanprogress;
+use App\Models\Statuskesehatan;
+use App\Models\Penjadwalanternak;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Dataternak extends Model
 {
@@ -24,8 +35,7 @@ class Dataternak extends Model
         // }
 
         $query->when($filters['cari'] ?? false, function ($query, $cari) {
-            return $query->where('nama_pemilik', 'like', '%' . $cari . '%')
-                ->orWhere('jenis_ternak', 'like', '%' . $cari . '%')
+            return $query->Where('jenis_ternak', 'like', '%' . $cari . '%')
                 ->orWhere('berat_ternak', 'like', '%' . $cari . '%')
                 ->orWhere('status_terjual', 'like', '%' . $cari . '%')
                 ->orWhere('deskripsi_tambahan', 'like', '%' . $cari . '%');
@@ -41,10 +51,6 @@ class Dataternak extends Model
 
     }
 
-    public function jenisternak()
-    {
-        return $this->belongsTo(Jenisternak::class);
-    }
 
     public function jeniskelamin()
     {
@@ -56,14 +62,53 @@ class Dataternak extends Model
         return $this->belongsTo(Statusterjual::class);
     }
 
+    public function jenisternak()
+    {
+        return $this->belongsTo(Jenisternak::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    public function user_role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function jadwalternak()
+    {
+        return $this->belongsTo(Penjadwalanternak::class);
+    }
+
+    public function jadwalternak_juduljadwal()
+    {
+        return $this->belongsTo(Juduljadwal::class);
+    }
+
+    public function laporanprogress()
+    {
+        return $this->belongsTo(Laporanprogress::class);
+    }
+
+    public function laporanprogress_statuskesehatan()
+    {
+        return $this->belongsTo(Statuskesehatan::class);
+    }
+    public function laporanprogress_kondisiternak()
+    {
+        return $this->belongsTo(Kondisiternak::class);
+    }
+    public function laporanprogress_hasilternak()
+    {
+        return $this->belongsTo(Hasilternak::class);
+    }
+
+
     public function getRouteKeyName()
     {
-        return 'nama_pemilik';
+        return 'slug';
     }
 }
 

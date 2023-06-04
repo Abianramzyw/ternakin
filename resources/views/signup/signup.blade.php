@@ -60,20 +60,21 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div class="form-floating">
-                        <select tyoe=role class="form-control @error('role')is-invalid @enderror" name="role">
-                            <option value="user">User</option>
-                            <option value="peternak">Peternak</option>
-                            <option value="dinas">Dinas Ketahanan Pakan dan Ternak</option>
+                        <select tyoe=role_id class="form-control @error('role_id')is-invalid @enderror" name="role_id">
+                            <option value="">Pilih</option>
+                            <option value="1">User</option>
+                            <option value="2">Peternak</option>
+                            <option value="3">Dinas Ketahanan Pakan dan Ternak</option>
                         </select>
-                        <label for="role">Pilih Role Anda :</label>
-                        @error('role')
+                        <label for="role_id">Pilih Role Anda :</label>
+                        @error('role_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-                    </div> --}}
+                    </div>
                     <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Masuk</button>
                 </form>
                 <small class="d-block text-center mt-3">Sudah terdaftar? <a href="/masuk">Masuk disini!</a></small>

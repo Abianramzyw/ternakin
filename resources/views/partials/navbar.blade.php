@@ -59,7 +59,7 @@
                         <li><a class="dropdown-item" {{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a>
                         </li>
                         <li><a class="dropdown-item" {{ Request::is('dataternak') ? 'active' : '' }}"
-                                href="/dataternak">Data</a></li>
+                                href="/dataternak">Data Ternak</a></li>
                         <li><a class="dropdown-item" {{ Request::is('penjadwalanternak') ? 'active' : '' }}"
                                 href="/penjadwalanternak">Jadwal</a></li>
                         <li><a class="dropdown-item" {{ Request::is('laporanprogress') ? 'active' : '' }}"
@@ -68,9 +68,8 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" {{ Request::is('hasilternak') ? 'active' : '' }}"
-                                href="/hasilternak">Hasil
-                                Ternak</a></li>
+                        <li><a class="dropdown-item" {{ Request::is('produkternak') ? 'active' : '' }}"
+                                href="/produkternak">Produk</a></li>
                         {{-- <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -81,7 +80,7 @@
             </ul>
 
 
-
+            {{-- 
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -89,7 +88,7 @@
                     <hr class="dropdown-divider">
                 </li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+            </ul> --}}
 
             <ul class="navbar-nav ms-auto">
                 @auth
@@ -99,6 +98,7 @@
                             {{ auth()->user()->nama_akun }}
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('profil', Auth::user()->nama_akun) }}">Profil</a></li>
                             <li><a class="dropdown-item" href="/peternak">Data Ternak</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -106,14 +106,14 @@
                             <li>
                                 <form action="/keluar" method="post">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">Keluar</button>
+                                    <button type="submit" class="dropdown-item">Sign Out</button>
                                 </form>
                             </li>
                         </ul>
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('masuk') ? 'active' : '' }}" href="/masuk">Masuk</a>
+                        <a class="nav-link {{ Request::is('masuk') ? 'active' : '' }}" href="/masuk">Sign In</a>
                         {{-- <a class="nav-link {{ Request::is('peternak') ? 'active' : '' }}" aria-current="page" href="/peternak"> --}}
                     </li>
                 @endauth

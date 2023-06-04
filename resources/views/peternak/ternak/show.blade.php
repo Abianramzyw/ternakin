@@ -8,12 +8,12 @@
 
                 <a href="/peternak/dataternak" class="btn btn-success">Kembali</a>
                 <a href="/peternak/dataternak/{{ $ternaks->nama_pemilik }}/edit" class="btn btn-warning"><span
-                        data-feather="edit"></span> Ubah</a>
+                        data-feather="edit"></span> Edit Data</a>
                 <form action="/peternak/dataternak/{{ $ternaks->nama_pemilik }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger" onclick="return confirm('Yakin untuk menghapus data?')"><span
-                            data-feather='x-circle'></span> Hapus</button>
+                            data-feather='x-circle'></span> Hapus Data</button>
                 </form>
 
                 <h5 class="mt-3">Jenis : {{ $ternaks->jenis_ternak }}</h5>

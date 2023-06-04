@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('jeniskelamins', function (Blueprint $table) {
             $table->id();
             $table->string('nama_jenis_kelamin');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

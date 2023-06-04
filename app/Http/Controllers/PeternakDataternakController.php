@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Dataternak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class PeternakDataternakController extends Controller
 {
@@ -43,7 +44,6 @@ class PeternakDataternakController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_pemilik' => 'required',
             'jenisternak_id' => 'required',
             'berat_ternak' => 'required',
             'image' => 'image|file|max:2048',
@@ -100,7 +100,6 @@ class PeternakDataternakController extends Controller
     public function update(Request $request, Dataternak $dataternak)
     {
         $validatedData = $request->validate([
-            'nama_pemilik' => 'required',
             'jenisternak_id' => 'required',
             'berat_ternak' => 'required',
             'image' => 'image|file|max:2048',

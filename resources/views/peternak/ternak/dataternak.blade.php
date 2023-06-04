@@ -14,15 +14,15 @@
     @endif
 
     <div class="table-responsive col-lg-8">
-        <a href="/peternak/dataternak/create" class="btn btn-primary mb-3">Membuat Data Baru</a>
+        <a href="/peternak/dataternak/create" class="btn btn-primary mb-3">Tambah Data</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nama Pemilik</th>
+                    <th scope="col">ID Sapi</th>
                     <th scope="col">Jenis</th>
                     <th scope="col">Berat</th>
-                    {{-- <th scope="col">Tanggal Lahir</th> --}}
+                    <th scope="col">Tanggal Lahir</th>
                     <th scope="col">Status Terjual</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -31,14 +31,16 @@
                 @foreach ($ternaks as $ternak)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $ternak->nama_pemilik }}</td>
-                        <td>{{ $ternak->jenis_ternak }}</td>
-                        <td>{{ $ternak->berat_ternak }}</td>
-                        <td>{{ $ternak->status_terjual }}</td>
-                        <td><a href="/peternak/dataternak/{{ $ternak->nama_pemilik }}" class="badge bg-info"><span
+                        <td>{{ $ternak->id }}</td>
+                        <td>{{ $ternak->jenisternak->nama_jenis_ternak }}</td>
+                        <td>{{ $ternak->berat_ternak }} Kg</td>
+                        <td>{{ $ternak->tanggal_lahir }}</td>
+                        <td>{{ $ternak->statusterjual->nama_status_terjual }}</td>
+                        <td><a href="/peternak/dataternak/{{ $ternak->slug }}" class="badge bg-info"><span
                                     data-feather='eye'></span></a>
-                            <a href="/peternak/dataternak/{{ $ternak->nama_pemilik }}/edit" class="badge bg-warning"><span data-feather='edit'></span></a>
-                            <form action="/peternak/dataternak/{{ $ternak->nama_pemilik }}" method="post" class="d-inline">
+                            <a href="/peternak/dataternak/{{ $ternak->slug }}/edit" class="badge bg-warning"><span
+                                    data-feather='edit'></span></a>
+                            <form action="/peternak/dataternak/{{ $ternak->slug }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0"

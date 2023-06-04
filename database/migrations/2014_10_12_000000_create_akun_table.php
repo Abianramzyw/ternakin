@@ -14,21 +14,23 @@ return new class extends Migration {
     {
         Schema::create('akun', function (Blueprint $table) {
             $table->id('id');
-            // $table->foreignId('role_id');
-            $table->string('nama_akun');
+            $table->string('nama_akun')->unique();
             $table->string('email_akun')->unique();
             $table->string('alamat_akun');
             $table->string('password_akun');
+            $table->foreignId('role_id');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
         //aku bingung disini, bingung pake columnd akun, sama kalo gapake timestamps error
         Schema::create('users', function (Blueprint $table) {
             $table->id('id');
-            // $table->foreignId('role_id');
-            $table->string('nama_akun');
+            $table->string('nama_akun')->unique();
             $table->string('email_akun')->unique();
             $table->string('alamat_akun');
             $table->string('password');
+            $table->foreignId('role_id');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

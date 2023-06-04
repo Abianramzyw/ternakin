@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('statusterjuals', function (Blueprint $table) {
             $table->id();
             $table->string('nama_status_terjual');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
