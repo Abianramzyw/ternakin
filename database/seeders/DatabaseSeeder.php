@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             'alamat_akun' => 'Bwz',
             'password' => bcrypt('wijaya'),
             'role_id' => '2',
-            'slug' => 'abian'
+            // 'slug' => 'abian'
         ]);
 
         // User::create([

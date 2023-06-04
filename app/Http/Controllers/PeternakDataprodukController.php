@@ -47,9 +47,11 @@ class PeternakDataprodukController extends Controller
      * @param  \App\Models\Produkternak  $produkternak
      * @return \Illuminate\Http\Response
      */
-    public function show(Produkternak $produkternak)
+    public function show(Produkternak $dataproduk)
     {
-        return $produkternak;
+        return view('peternak.ternak.showproduk', [
+            "produkternaks" => $dataproduk
+        ]);
     }
 
     /**

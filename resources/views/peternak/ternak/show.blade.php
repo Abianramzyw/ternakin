@@ -3,13 +3,13 @@
 @section('container')
     <div class="container">
         <div class="row my-3">
-            <div class="col-md-8">
-                <h1 class="mb-3"> {{ $ternaks->nama_pemilik }}</h1>
+            <div class="col-lg-8">
+                <h1 class="mb-3"> {{ $ternaks->id }}</h1>
 
                 <a href="/peternak/dataternak" class="btn btn-success">Kembali</a>
-                <a href="/peternak/dataternak/{{ $ternaks->nama_pemilik }}/edit" class="btn btn-warning"><span
+                <a href="/peternak/dataternak/{{ $ternaks->slug }}/edit" class="btn btn-warning"><span
                         data-feather="edit"></span> Edit Data</a>
-                <form action="/peternak/dataternak/{{ $ternaks->nama_pemilik }}" method="post" class="d-inline">
+                <form action="/peternak/dataternak/{{ $ternaks->slug }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger" onclick="return confirm('Yakin untuk menghapus data?')"><span

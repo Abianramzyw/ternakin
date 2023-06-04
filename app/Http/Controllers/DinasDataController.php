@@ -47,9 +47,11 @@ class DinasDataController extends Controller
      * @param  \App\Models\Penjadwalanternak  $penjadwalanternak
      * @return \Illuminate\Http\Response
      */
-    public function show(Penjadwalanternak $penjadwalanternak)
+    public function show(Penjadwalanternak $datajadwal)
     {
-        return $penjadwalanternak;
+        return view('dkpp.dinas.show', [
+            "penjadwalanternaks" => $datajadwal
+        ]);
     }
 
     /**

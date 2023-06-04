@@ -27,7 +27,8 @@ class PeternakDatalaporanController extends Controller
      */
     public function create()
     {
-        //
+        return view('peternak.ternak.createlaporan', [
+        ]);
     }
 
     /**
@@ -47,11 +48,10 @@ class PeternakDatalaporanController extends Controller
      * @param  \App\Models\Laporanprogress  $laporanprogress
      * @return \Illuminate\Http\Response
      */
-    public function show(Laporanprogress $laporanprogress)
+    public function show(Laporanprogress $datalaporan)
     {
-        return $laporanprogress;
         return view('peternak.ternak.showlaporan', [
-            "laporanprogresses" => $laporanprogress
+            "laporanprogresses" => $datalaporan
         ]);
     }
 
@@ -61,9 +61,11 @@ class PeternakDatalaporanController extends Controller
      * @param  \App\Models\Laporanprogress  $laporanprogress
      * @return \Illuminate\Http\Response
      */
-    public function edit(Laporanprogress $laporanprogress)
+    public function edit(Laporanprogress $datalaporan)
     {
-        //
+        return view('peternak.ternak.editlaporan', [
+            'datalaporans' => $datalaporan,
+        ]);
     }
 
     /**

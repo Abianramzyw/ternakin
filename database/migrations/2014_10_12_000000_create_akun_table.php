@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('alamat_akun');
             $table->string('password_akun');
             $table->foreignId('role_id');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
         //aku bingung disini, bingung pake columnd akun, sama kalo gapake timestamps error
@@ -30,7 +30,7 @@ return new class extends Migration {
             $table->string('alamat_akun');
             $table->string('password');
             $table->foreignId('role_id');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

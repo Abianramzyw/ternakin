@@ -27,7 +27,7 @@ class UserFactory extends Factory
             // password
             // 'remember_token' => Str::random(10),
             //////////cobacoba////////
-            'slug' => $this->faker->name(),
+            // 'slug' => $this->faker->name(),
         ];
     }
 

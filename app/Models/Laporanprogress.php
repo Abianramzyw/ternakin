@@ -43,6 +43,6 @@ class Laporanprogress extends Model
 
     public function getRouteKeyName()
     {
-        return 'slug';
+        return 'id';
     }
 }
