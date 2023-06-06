@@ -27,7 +27,8 @@ class PeternakDataprodukController extends Controller
      */
     public function create()
     {
-        //
+        return view('peternak.ternak.createproduk', [
+        ]);
     }
 
     /**
@@ -60,9 +61,11 @@ class PeternakDataprodukController extends Controller
      * @param  \App\Models\Produkternak  $produkternak
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produkternak $produkternak)
+    public function edit(Produkternak $dataproduk)
     {
-        //
+        return view('peternak.ternak.editproduk', [
+            'dataproduk' => $dataproduk,
+        ]);
     }
 
     /**

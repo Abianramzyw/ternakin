@@ -27,7 +27,8 @@ class DinasDataController extends Controller
      */
     public function create()
     {
-        //
+        return view('dkpp.dinas.create', [
+        ]);
     }
 
     /**
@@ -60,9 +61,11 @@ class DinasDataController extends Controller
      * @param  \App\Models\Penjadwalanternak  $penjadwalanternak
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penjadwalanternak $penjadwalanternak)
+    public function edit(Penjadwalanternak $datajadwal)
     {
-        //
+        return view('dkpp.dinas.edit', [
+            'datajadwal' => $datajadwal,
+        ]);
     }
 
     /**

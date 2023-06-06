@@ -17,7 +17,7 @@
                 </form>
 
                 {{-- <h5 class="mt-3">Jenis : {{ $produkternaks->jenis_ternak }}</h5> --}}
-                <h5>Nama Produk : {{ $produkternaks->nama_produk }}</h5>
+                {{-- <h5>Nama Produk : {{ $produkternaks->nama_produk }}</h5> --}}
                 {{-- <h5>Tanggal Lahir :{{ $produkternaks->tanggal_lahir }}</h5>
                 <h5>Status : {{ $produkternaks->status_terjual }}</h5> --}}
                 {{-- <h5>Foto : {{ $produkternaks->foto_ternak }}</h5> --}}
@@ -33,7 +33,7 @@
 
                 {{-- {{ $produkternaks-> }} --}}
                 <article class="my-3 fs-6">
-                    Deskripsi : {!! $produkternaks->deskripsi_progress !!}
+                    Deskripsi : {!! $produkternaks->deskripsi_produk !!}
                 </article>
             </div>
         </div>

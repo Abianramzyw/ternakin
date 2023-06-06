@@ -2,6 +2,7 @@
 
 @section('container')
     <div class="table-responsive">
+        <a href="/peternak/dataproduk/create" class="btn btn-primary mb-3">Tambah Data</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -27,8 +28,9 @@
                         <td>{{ $produk->stok_produk }}</td>
                         <td><a href="/peternak/dataproduk/{{ $produk->slug }}" class="badge bg-info"><span
                                     data-feather='eye'></span></a>
-                            <a href="#" class="badge bg-warning"><span data-feather='edit'></span></a>
-                            <form action="#" method="post" class="d-inline">
+                            <a href="/peternak/dataproduk/{{ $produk->slug }}/edit" class="badge bg-warning"><span
+                                    data-feather='edit'></span></a>
+                            <form action="/peternak/dataproduk/{{ $produk->slug }}" method="post" class="d-inline">
                                 <button class="badge bg-danger border-0"
                                     onclick="return confirm('Yakin untuk menghapus data?')"><span
                                         data-feather='x-circle'></span></button>

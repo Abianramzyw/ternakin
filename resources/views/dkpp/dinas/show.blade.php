@@ -17,7 +17,7 @@
                 </form>
 
                 {{-- <h5 class="mt-3">Jenis : {{ $penjadwalanternaks->jenis_ternak }}</h5> --}}
-                <h5>Berat : {{ $penjadwalanternaks->tanggal_jadwal }}</h5>
+                <h5>Tanggal : {{ $penjadwalanternaks->tanggal_jadwal }}</h5>
                 {{-- <h5>Tanggal Lahir :{{ $penjadwalanternaks->tanggal_lahir }}</h5>
                 <h5>Status : {{ $penjadwalanternaks->status_terjual }}</h5> --}}
                 {{-- <h5>Foto : {{ $penjadwalanternaks->foto_ternak }}</h5> --}}
@@ -32,9 +32,7 @@
 
 
                 {{-- {{ $penjadwalanternaks-> }} --}}
-                <article class="my-3 fs-6">
-                    Deskripsi : {!! $penjadwalanternaks->deskripsi_progress !!}
-                </article>
+
             </div>
         </div>
     </div>
