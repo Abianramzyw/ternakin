@@ -18,11 +18,11 @@ return new class extends Migration {
             $table->integer('berat_ternak');
             $table->text('deskripsi_progress');
             $table->string('image')->nullable();
-            $table->foreignId('statuskesehatan_id');
+            // $table->foreignId('statuskesehatan_id');
             $table->foreignId('kondisiternak_id');
             $table->foreignId('hasilternak_id');
             $table->foreignId('user_id');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

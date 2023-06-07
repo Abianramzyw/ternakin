@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dataternak;
+use App\Models\Hasilternak;
 use Illuminate\Http\Request;
+use App\Models\Kondisiternak;
 use App\Models\Laporanprogress;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PeternakDatalaporanController extends Controller
 {
@@ -28,6 +32,8 @@ class PeternakDatalaporanController extends Controller
     public function create()
     {
         return view('peternak.ternak.createlaporan', [
+            'kondisiternak' => Kondisiternak::all(),
+            'hasilternak' => Hasilternak::all(),
         ]);
     }
 
@@ -39,13 +45,32 @@ class PeternakDatalaporanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        $validatedData = $request->validate([
+            'tanggal_progress' => 'required',
+            'berat_ternak' => 'required',
+            'kondisiternak_id' => 'required',
+            'hasilternak_id' => 'required',
+            'deskripsi_progress' => 'required',
+            'image' => 'image|file|max:2048',
+            // 'statuskesehatan_id' => 'required',
+        ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('foto-ternak');
+        }
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Laporanprogress::create($validatedData);
+
+        return redirect('/peternak/datalaporan')->with('success', 'Data Laporan Berhasil Ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Laporanprogress  $laporanprogress
+     * @param  \App\Models\Laporanprogress  $datalaporan
      * @return \Illuminate\Http\Response
      */
     public function show(Laporanprogress $datalaporan)
@@ -58,7 +83,7 @@ class PeternakDatalaporanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Laporanprogress  $laporanprogress
+     * @param  \App\Models\Laporanprogress  $datalaporan
      * @return \Illuminate\Http\Response
      */
     public function edit(Laporanprogress $datalaporan)
@@ -72,10 +97,10 @@ class PeternakDatalaporanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Laporanprogress  $laporanprogress
+     * @param  \App\Models\Laporanprogress  $datalaporan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Laporanprogress $laporanprogress)
+    public function update(Request $request, Laporanprogress $datalaporan)
     {
         //
     }
@@ -83,11 +108,15 @@ class PeternakDatalaporanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Laporanprogress  $laporanprogress
+     * @param  \App\Models\Laporanprogress  $datalaporan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Laporanprogress $laporanprogress)
+    public function destroy(Laporanprogress $datalaporan)
     {
-        //
+        if ($datalaporan->image) {
+            Storage::delete($datalaporan->image);
+        }
+        Laporanprogress::destroy($datalaporan->id);
+        return redirect('/peternak/datalaporan')->with('success', 'Data Laporan Berhasil Dihapus!');
     }
 }

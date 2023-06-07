@@ -36,11 +36,11 @@
                         <td>{{ $ternak->berat_ternak }} Kg</td>
                         <td>{{ $ternak->tanggal_lahir }}</td>
                         <td>{{ $ternak->statusterjual->nama_status_terjual }}</td>
-                        <td><a href="/peternak/dataternak/{{ $ternak->slug }}" class="badge bg-info"><span
+                        <td><a href="/peternak/dataternak/{{ $ternak->id }}" class="badge bg-info"><span
                                     data-feather='eye'></span></a>
-                            <a href="/peternak/dataternak/{{ $ternak->slug }}/edit" class="badge bg-warning"><span
+                            <a href="/peternak/dataternak/{{ $ternak->id }}/edit" class="badge bg-warning"><span
                                     data-feather='edit'></span></a>
-                            <form action="/peternak/dataternak/{{ $ternak->slug }}" method="post" class="d-inline">
+                            <form action="/peternak/dataternak/{{ $ternak->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0"

@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Datatransaksi;
 use App\Models\Hasilternak;
 use App\Models\Juduljadwal;
+use App\Models\Kategorihewanproduk;
 use App\Models\Kondisiternak;
 use App\Models\Laporanprogress;
 use App\Models\Pembayarantransaksi;
@@ -143,16 +144,12 @@ class DatabaseSeeder extends Seeder
         ]);
         ///////////////////////////////////////////////////////////
         Hasilternak::create([
-            'nama_hasil_ternak' => 'Daging',
-            'slug' => 'daging'
+            'nama_hasil_ternak' => 'Kambing',
+            'slug' => 'kambing'
         ]);
         Hasilternak::create([
-            'nama_hasil_ternak' => 'Kulit',
-            'slug' => 'kulit'
-        ]);
-        Hasilternak::create([
-            'nama_hasil_ternak' => 'Tulang',
-            'slug' => 'tulang'
+            'nama_hasil_ternak' => 'Domba',
+            'slug' => 'domba'
         ]);
         ///////////////////////////////////////////////////////////
         Statuskesehatan::create([
@@ -175,6 +172,15 @@ class DatabaseSeeder extends Seeder
         Kondisiternak::create([
             'nama_kondisi_ternak' => 'Sakit',
             'slug' => 'sakit'
+        ]);
+        ///////////////////////////////////////////////////////////
+        Kategorihewanproduk::create([
+            'nama_kategori_hewan' => 'Kambing',
+            'slug' => 'kambing'
+        ]);
+        Kategorihewanproduk::create([
+            'nama_kategori_hewan' => 'Domba',
+            'slug' => 'domba'
         ]);
         ///////////////////////////////////////////////////////////
         Dataternak::factory(50)->create();

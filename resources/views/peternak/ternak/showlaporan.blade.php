@@ -6,10 +6,10 @@
             <div class="col-lg-8">
                 <h1 class="mb-3"> {{ $laporanprogresses->id }}</h1>
 
-                <a href="/peternak/dataternak" class="btn btn-success">Kembali</a>
-                <a href="/peternak/dataternak/{{ $laporanprogresses->id }}/edit" class="btn btn-warning"><span
+                <a href="/peternak/datalaporan" class="btn btn-success">Kembali</a>
+                <a href="/peternak/datalaporan/{{ $laporanprogresses->id }}/edit" class="btn btn-warning"><span
                         data-feather="edit"></span> Edit Data</a>
-                <form action="/peternak/dataternak/{{ $laporanprogresses->id }}" method="post" class="d-inline">
+                <form action="/peternak/datalaporan/{{ $laporanprogresses->id }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger" onclick="return confirm('Yakin untuk menghapus data?')"><span

@@ -98,8 +98,10 @@
                             {{ auth()->user()->nama_akun }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('profil', Auth::user()->nama_akun) }}">Profil</a></li>
-                            <li><a class="dropdown-item" href="/peternak">Data Ternak</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profil', Auth::user()->nama_akun) }}">Akun</a></li>
+                            <li><a class="dropdown-item" href="/peternak/dataternak">Data Ternak</a></li>
+                            <li><a class="dropdown-item" href="/peternak/datalaporan">Data Laporan</a></li>
+                            <li><a class="dropdown-item" href="/peternak/dataproduk">Data Produk</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

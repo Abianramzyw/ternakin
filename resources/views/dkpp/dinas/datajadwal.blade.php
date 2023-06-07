@@ -1,6 +1,18 @@
 @extends('dkpp.layouts.main')
 
 @section('container')
+    <div class="d-flex justify-content-between flex-wrap flex-lg-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">
+            Data Jadwal
+        </h1>
+    </div>
+
+    @if (session()->has('success'))
+        <div class="alert alert-success col-lg-8" role='alert'>
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="table-responsive">
         <a href="/dkpp/datajadwal/create" class="btn btn-primary mb-3">Tambah Data</a>
         <table class="table table-striped table-sm">
@@ -24,8 +36,11 @@
                         {{-- <td>{{ $jadwal->dokter }}</td> --}}
                         <td><a href="/dkpp/datajadwal/{{ $jadwal->id }}" class="badge bg-info"><span
                                     data-feather='eye'></span></a>
-                            <a href="/dkpp/datajadwal/{{ $jadwal->id }}/edit" class="badge bg-warning"><span data-feather='edit'></span></a>
+                            <a href="/dkpp/datajadwal/{{ $jadwal->id }}/edit" class="badge bg-warning"><span
+                                    data-feather='edit'></span></a>
                             <form action="/dkpp/datajadwal/{{ $jadwal->id }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
                                 <button class="badge bg-danger border-0"
                                     onclick="return confirm('Yakin untuk menghapus data?')"><span
                                         data-feather='x-circle'></span></button>

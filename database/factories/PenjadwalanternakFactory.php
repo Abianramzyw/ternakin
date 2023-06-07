@@ -22,7 +22,7 @@ class PenjadwalanternakFactory extends Factory
             'juduljadwal_id' => mt_rand(1, 3),
             'user_id' => mt_rand(1, 5),
             //////coba/coba////
-            'slug' => $this->faker->name(),
+            // 'slug' => $this->faker->name(),
         ];
     }
 }

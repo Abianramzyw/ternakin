@@ -75,7 +75,7 @@
                             </div>
                         @enderror
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Masuk</button>
+                    <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Sign Up</button>
                 </form>
                 <small class="d-block text-center mt-3">Sudah terdaftar? <a href="/masuk">Masuk disini!</a></small>
             </main>

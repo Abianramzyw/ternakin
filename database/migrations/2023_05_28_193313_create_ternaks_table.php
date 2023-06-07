@@ -23,14 +23,14 @@ return new class extends Migration {
             $table->foreignId('statusterjual_id');
             $table->foreignId('jenisternak_id');
             $table->foreignId('user_id');
-            $table->foreignId('user_role_id');
-            $table->foreignId('jadwalternak_id');
-            $table->foreignId('jadwalternak_juduljadwal_id');
-            $table->foreignId('laporanprogress_id');
-            $table->foreignId('laporanprogress_statuskesehatan_id');
-            $table->foreignId('laporanprogress_kondisi_id');
-            $table->foreignId('laporanprogress_hasilternak_id');
-            $table->string('slug')->unique();
+            // $table->foreignId('user_role_id');
+            // $table->foreignId('jadwalternak_id');
+            // $table->foreignId('jadwalternak_juduljadwal_id');
+            // $table->foreignId('laporanprogress_id');
+            // $table->foreignId('laporanprogress_statuskesehatan_id');
+            // $table->foreignId('laporanprogress_kondisi_id');
+            // $table->foreignId('laporanprogress_hasilternak_id');
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

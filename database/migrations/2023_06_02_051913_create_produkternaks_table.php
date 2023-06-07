@@ -20,8 +20,9 @@ return new class extends Migration {
             $table->integer('stok_produk');
             $table->text('deskripsi_produk');
             $table->string('image')->nullable();
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->foreignId('user_id');
+            $table->foreignId('kategorihewanproduk_id');
             $table->timestamps();
         });
     }

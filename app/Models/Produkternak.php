@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Datatransaksi;
+use App\Models\Kategorihewanproduk;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -22,9 +23,13 @@ class Produkternak extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function kategorihewanproduk()
+    {
+        return $this->belongsTo(Kategorihewanproduk::class);
+    }
 
     public function getRouteKeyName()
     {
-        return 'slug';
+        return 'id';
     }
 }

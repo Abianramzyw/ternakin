@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jenisternak;
 use App\Models\User;
 use App\Models\Dataternak;
+use App\Models\Jenisternak;
+use App\Models\Jeniskelamin;
 use Illuminate\Http\Request;
+use App\Models\Statusterjual;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class PeternakDataternakController extends Controller
@@ -27,10 +30,13 @@ class PeternakDataternakController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        // dd($request->all());
         return view('peternak.ternak.create', [
-            'jenisternak' => Jenisternak::all()
+            'jenisternak' => Jenisternak::all(),
+            'jeniskelamin' => Jeniskelamin::all(),
+            'statusterjual' => Statusterjual::all()
         ]);
     }
 
@@ -43,12 +49,13 @@ class PeternakDataternakController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'jenisternak_id' => 'required',
             'berat_ternak' => 'required',
-            'image' => 'image|file|max:2048',
-            'jenis_ternak' => 'required',
+            'tanggal_lahir' => 'required',
             'deskripsi_tambahan' => 'required',
-            'status_terjual' => 'required',
+            'image' => 'image|file|max:2048',
+            'jenisternak_id' => 'required',
+            'jeniskelamin_id' => 'required',
+            'statusterjual_id' => 'required',
         ]);
 
         if ($request->file('image')) {
@@ -85,7 +92,9 @@ class PeternakDataternakController extends Controller
     {
         return view('peternak.ternak.edit', [
             'dataternak' => $dataternak,
-            'jenisternak' => Jenisternak::all()
+            'jenisternak' => Jenisternak::all(),
+            'jeniskelamin' => Jeniskelamin::all(),
+            'statusterjual' => Statusterjual::all()
         ]);
     }
 
@@ -99,12 +108,13 @@ class PeternakDataternakController extends Controller
     public function update(Request $request, Dataternak $dataternak)
     {
         $validatedData = $request->validate([
-            'jenisternak_id' => 'required',
             'berat_ternak' => 'required',
-            'image' => 'image|file|max:2048',
-            'jenis_ternak' => 'required',
+            'tanggal_lahir' => 'required',
             'deskripsi_tambahan' => 'required',
-            'status_terjual' => 'required',
+            'image' => 'image|file|max:2048',
+            'jenisternak_id' => 'required',
+            'jeniskelamin_id' => 'required',
+            'statusterjual_id' => 'required',
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dataternak;
+use App\Models\Juduljadwal;
 use Illuminate\Http\Request;
 use App\Models\Penjadwalanternak;
 use App\Http\Controllers\Controller;
@@ -28,6 +30,7 @@ class DinasDataController extends Controller
     public function create()
     {
         return view('dkpp.dinas.create', [
+            'juduljadwal' => Juduljadwal::all()
         ]);
     }
 
@@ -39,13 +42,23 @@ class DinasDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'dokter' => 'required',
+            'tanggal_jadwal' => 'required',
+            'juduljadwal_id' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Penjadwalanternak::create($validatedData);
+
+        return redirect('/dkpp/datajadwal')->with('success', 'Data Ternak Berhasil Ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Penjadwalanternak  $penjadwalanternak
+     * @param  \App\Models\Penjadwalanternak  $datajadwal
      * @return \Illuminate\Http\Response
      */
     public function show(Penjadwalanternak $datajadwal)
@@ -58,7 +71,7 @@ class DinasDataController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Penjadwalanternak  $penjadwalanternak
+     * @param  \App\Models\Penjadwalanternak  $datajadwal
      * @return \Illuminate\Http\Response
      */
     public function edit(Penjadwalanternak $datajadwal)
@@ -72,10 +85,10 @@ class DinasDataController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Penjadwalanternak  $penjadwalanternak
+     * @param  \App\Models\Penjadwalanternak  $datajadwal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penjadwalanternak $penjadwalanternak)
+    public function update(Request $request, Penjadwalanternak $datajadwal)
     {
         //
     }
@@ -83,11 +96,12 @@ class DinasDataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Penjadwalanternak  $penjadwalanternak
+     * @param  \App\Models\Penjadwalanternak  $datajadwal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penjadwalanternak $penjadwalanternak)
+    public function destroy(Penjadwalanternak $datajadwal)
     {
-        //
+        Penjadwalanternak::destroy($datajadwal->id);
+        return redirect('/dkpp/datajadwal')->with('success', 'Data Jadwal Berhasil Dihapus!');
     }
 }

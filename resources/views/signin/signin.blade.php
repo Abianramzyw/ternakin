@@ -37,7 +37,7 @@
                             placeholder="Password" required>
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Masuk</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
                 </form>
                 <small class="d-block text-center mt-3">Belum terdaftar? <a href="/daftar">Daftar disini!</a></small>
             </main>

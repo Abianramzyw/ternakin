@@ -23,8 +23,9 @@ class ProdukternakFactory extends Factory
             'stok_produk' => mt_rand(10, 100),
             'deskripsi_produk' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn($p) => "<p>$p<p>")->implode(''),
             'user_id' => mt_rand(1, 5),
+            'kategorihewanproduk_id' => mt_rand(1, 5),
             //////////cobacoba////////
-            'slug' => $this->faker->name(),
+            // 'slug' => $this->faker->name(),
         ];
     }
 }

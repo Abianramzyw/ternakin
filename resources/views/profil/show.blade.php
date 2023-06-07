@@ -9,7 +9,7 @@
                 <h5>Alamat : {{ $user->alamat_akun }}</h5>
                 <h5>Email : {{ $user->email_akun }}</h5>
                 <h3>
-                    <a href="{{ route('profil.edit') }}">Edit Profil</a>
+                    <a href="{{ route('profil.edit') }}">Edit Akun</a>
                 </h3>
             </div>
         </div>

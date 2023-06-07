@@ -8,77 +8,41 @@
     </div>
 
     <div class="col-lg-7">
-        <form method="post" action="/peternak/datalaporan" class="mb-5" enctype="multipart/form-data">
+        <form method="post" action="/dkpp/datajadwal" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="nama_pemilik" class="form-label">Tanggal</label>
-                <input type="text" class="form-control @error('nama_pemilik') is-invalid
-                @enderror"
-                    id="nama_pemilik" name="nama_pemilik" required autofocus value="{{ old('nama_pemilik') }}"
-                    @error('nama_pemilik')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                    </div>
-                <div class="mb-3">
-                    <label for="berat_ternak" class="form-label">Dokter</label>
-                    <input type="text" class="form-control @error('berat_ternak') is-invalid
-                @enderror"
-                        id="berat_ternak" name="berat_ternak" required value="{{ old('berat_ternak') }}">
-                    @error('berat_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="jenis_ternak" class="form-label">Judul</label>
-                    <input type="text" class="form-control @error('jenis_ternak') is-invalid
-                @enderror"
-                        id="jenis_ternak" name="jenis_ternak" required value="{{ old('jenis_ternak') }}">
-                    @error('jenis_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                {{-- <div class="mb-3">
-                    <label for="jenisternak_id" class="form-label">Jenis Ternak</label>
-                    <select class="form-select" name="jenisternak_id">
-                        <option selected>Pilih Jenis Ternak</option>
-                        @foreach ($jenisternak as $jenis)
-                            @if (old('jenisternak_id') == $jenis->id)
-                                <option value="{{ $jenis->id }}" selected>{{ $jenis->nama_jenis_ternak }}</option>
-                            @else
-                                <option value="{{ $jenis->id }}">{{ $jenis->nama_jenis_ternak }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div> --}}
-                {{-- <div class="mb-3">
-                <label for="status_terjual" class="form-label">Status Terjual</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Pilih Status</option>
-                    <option value="1">Ada</option>
-                    <option value="2">Terjual</option>
+                <label for="juduljadwal_id" class="form-label">Judul</label>
+                <select class="form-select" name="juduljadwal_id">
+                    <option selected>Pilih Judul</option>
+                    @foreach ($juduljadwal as $juduljadwal)
+                        @if (old('juduljadwal_id') == $juduljadwal->id)
+                            <option value="{{ $juduljadwal->id }}" selected>{{ $juduljadwal->nama_judul_jadwal }}</option>
+                        @else
+                            <option value="{{ $juduljadwal->id }}">{{ $juduljadwal->nama_judul_jadwal }}</option>
+                        @endif
+                    @endforeach
                 </select>
-            </div> --}}
-                {{-- <div class="mb-3">
-                    <label for="image" class="form-label">Foto</label>
-                    <img class="img-preview img-fluid mb-3 col-sm-5">
-                    <input class="form-control  @error('image') is-invalid
-                    @enderror" type="file"
-                        id="image" name="image" onchange="previewImage">
-                    @error('image')
+            </div>
+            <div class="mb-3">
+                <div class="mb-3">
+                    <label for="tanggal_jadwal" class="form-label">Tanggal</label>
+                    <input type="date"
+                        class="form-control @error('tanggal_jadwal') is-invalid
+                    @enderror"
+                        id="tanggal_jadwal" name="tanggal_jadwal" required value="{{ old('tanggal_jadwal') }}">
+                    @error('tanggal_jadwal')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="deskripsi_tambahan" class="form-label">Deskripsi</label>
-                    @error('deskripsi_tambahan')
-                        <p class="text-danger">{{ $message }}</p>
+                    <label for="dokter" class="form-label">Dokter</label>
+                    <input type="text" class="form-control @error('dokter') is-invalid
+                @enderror"
+                        id="dokter" name="dokter" required value="{{ old('dokter') }}">
+                    @error('dokter')
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                    <input id="deskripsi_tambahan" type="hidden" name="deskripsi_tambahan"
-                        value="{{ old('deskripsi_tambahan') }}">
-                    <trix-editor input="deskripsi_tambahan"></trix-editor>
-                </div> --}}
-
-
+                </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
