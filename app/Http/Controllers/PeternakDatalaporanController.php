@@ -110,7 +110,7 @@ class PeternakDatalaporanController extends Controller
         $validatedData = $request->validate([
             'tanggal_progress' => 'required',
             'berat_ternak' => 'required|between:0,999.99',
-            'kondisiternak_id' => 'required',
+            'kondisiternak_id' => 'required|numeric',
             'hasilternak_id' => 'required|numeric',
             'deskripsi_progress' => 'required',
             'image' => 'image|file|max:2048',
