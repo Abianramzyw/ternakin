@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label for="berat_ternak" class="form-label">Berat</label>
-                <input type="text" class="form-control @error('berat_ternak') is-invalid
+                <input type="number" step="0.01" class="form-control @error('berat_ternak') is-invalid
                 @enderror"
                     id="berat_ternak" name="berat_ternak" required value="{{ old('berat_ternak') }}">
                 @error('berat_ternak')
@@ -45,7 +45,7 @@
             <div class="mb-3">
                 <label for="hasilternak_id" class="form-label">Hasil Ternak</label>
                 <select class="form-select" name="hasilternak_id">
-                    <option selected>Pilih Kondisi</option>
+                    <option selected>Pilih Ternak</option>
                     @foreach ($hasilternak as $hasilternak)
                         @if (old('hasilternak_id') == $hasilternak->id)
                             <option value="{{ $hasilternak->id }}" selected>{{ $hasilternak->nama_hasil_ternak }}

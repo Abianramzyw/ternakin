@@ -191,7 +191,7 @@ Route::get('/edit', [UserController::class, 'edit'])->name('profil.edit')->middl
 
 Route::put('/update', [UserController::class, 'update'])->name('profil.update')->middleware('auth');
 
-Route::get('/profil/{user:nama_akun}', UserController::class)->name('profil')->middleware('auth');
+Route::get('/profil/{user:id}', UserController::class)->name('profil')->middleware('auth');
 
 Route::get('/masuk', [SigninController::class, 'index'])->name('masuk')->middleware('guest');
 
