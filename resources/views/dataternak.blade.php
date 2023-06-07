@@ -33,19 +33,19 @@
                     class="card-img-top" alt="{{ $ternaks[0]->jenisternak->nama_jenis_ternak }}">
             @endif
             <div class="card-body text-center">
-                <h3 class="card-title">Pemilik : {{ $ternaks[0]->id }}</h3>
+                <h3 class="card-title">Nomer Ternak : {{ $ternaks[0]->id }}</h3>
                 <p>
                     <small class="text-muted">
                         Peternak <a href="/dataternak?user={{ $ternaks[0]->user->nama_akun }}" class="text-decoration-none">
                             {{ $ternaks[0]->user->nama_akun }} </a> Dari Jenis <a
-                            href="/dataternak?jenisternak={{ $ternaks[0]->jenisternak->slug }}"
+                            href="/dataternak?jenisternak={{ $ternaks[0]->jenisternak->id }}"
                             class="text-decoration-none">{{ $ternaks[0]->jenisternak->nama_jenis_ternak }}</a>
                         {{ $ternaks[0]->created_at->diffForHumans() }}
                     </small>
                 </p>
                 <p class="card-text">Status : {{ $ternaks[0]->statusterjual->nama_status_terjual }}</p>
 
-                <a href="/dataternak/{{ $ternaks[0]->slug }}" class="text-decoration-non btn btn-primary">
+                <a href="/dataternak/{{ $ternaks[0]->id }}" class="text-decoration-non btn btn-primary">
                     Baca selengkapnya</a>
 
             </div>
@@ -57,7 +57,7 @@
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <div class="position-absolute px-3 py-1" style="background-color:rgba(0, 0, 0, 0.4)"><a
-                                    href="/dataternak?jenisternak={{ $ternak->jenisternak->slug }}"
+                                    href="/dataternak?jenisternak={{ $ternak->jenisternak->id }}"
                                     class="text-white text-decoration-none">{{ $ternak->jenisternak->nama_jenis_ternak }}</a>
                             </div>
                             @if ($ternak->image)
@@ -69,7 +69,7 @@
                             @endif
 
                             <div class="card-body">
-                                <h5 class="card-title">Pemilik : {{ $ternak->id }}</h5>
+                                <h5 class="card-title">Nomer Ternak : {{ $ternak->id }}</h5>
                                 <p>
                                     <small class="text-muted">
                                         Peternak : <a href="/dataternak?user={{ $ternak->user->nama_akun }}"
@@ -79,7 +79,7 @@
                                     </small>
                                 </p>
                                 <p class="card-text">Status : {{ $ternak->statusterjual->nama_status_terjual }}</p>
-                                <a href="/dataternak/{{ $ternak->slug }}" class="btn btn-primary">Baca
+                                <a href="/dataternak/{{ $ternak->id }}" class="btn btn-primary">Baca
                                     Selengkapnya</a>
                             </div>
                         </div>

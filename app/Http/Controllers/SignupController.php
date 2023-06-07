@@ -31,6 +31,6 @@ class SignupController extends Controller
 
         // $request->session()->flash('sukses', 'Daftar akun berhasil! Silahkan masuk.');
 
-        return redirect('/masuk')->with('sukses', 'Daftar akun berhasil! Silahkan masuk.');
+        return redirect('/dataternak')->with('sukses', 'Daftar akun berhasil! Silahkan masuk.');
     }
 }

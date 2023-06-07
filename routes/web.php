@@ -47,7 +47,7 @@ Route::get('/', function () {
 
 Route::get('/dataternak', [DataternakController::class, 'index']);
 
-Route::get('/dataternak/{ternak:slug}', [DataternakController::class, 'show']);
+Route::get('/dataternak/{ternak:id}', [DataternakController::class, 'show']);
 
 /////////////jenisternak///////////
 Route::get('/jenisternak', function () {
@@ -158,9 +158,9 @@ Route::get('/laporanprogress/{laporanprogresses:id}', [LaporanprogressController
 
 /////////////produk ternak////////////////////
 
-Route::get('/produkternak', [ProdukternakController::class, 'index']);
+Route::get('/toko/produkternak', [ProdukternakController::class, 'index']);
 
-Route::get('/produkternak/{produkternak:id}', [ProdukternakController::class, 'show']);
+Route::get('/toko/produkternak/{produkternak:id}', [ProdukternakController::class, 'show']);
 
 // Route::get('/hasilternak', function () {
 //     return view('hasilternak', [
@@ -205,6 +205,9 @@ Route::post('/daftar', [SignupController::class, 'store']);
 
 /////////////////////////////////////////////////////////
 Route::get('/peternak', function () {
+    if (auth()->user()->role_id != '2') {
+        abort(403);
+    }
     return view('peternak.homepage', [
         "title" => "Halaman Peternak",
         // "active" => "Beranda"
@@ -219,7 +222,11 @@ Route::resource('/peternak/dataproduk', PeternakDataprodukController::class)->mi
 /////////////////////////////////////////////////////////////////
 
 Route::get('/dkpp', function () {
+    if (auth()->user()->role_id != '3') {
+        abort(403);
+    }
     return view('dkpp.homepage', [
+
         "title" => "Halaman Dinas Ketahanan Pangan Dan Peternakan",
         // "active" => "Beranda"
     ]);

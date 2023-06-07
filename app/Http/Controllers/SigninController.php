@@ -28,7 +28,7 @@ class SigninController extends Controller
             return redirect()->intended('/dataternak');
         }
 
-        return back()->with('gagal', 'Masuk gagal!');
+        return back()->with('gagal', 'Email/Password yang anda masukkan Salah!');
     }
 
     public function logout()

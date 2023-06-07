@@ -18,6 +18,9 @@ class PeternakDataprodukController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->role_id != '2') {
+            abort(403);
+        }
         return view('peternak.ternak.dataproduk', [
             'produks' => Produkternak::where('user_id', auth()->user()->id)->get()
         ]);

@@ -69,7 +69,7 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" {{ Request::is('produkternak') ? 'active' : '' }}"
-                                href="/produkternak">Produk</a></li>
+                                href="/toko/produkternak">Jual/Beli Hasil Ternak</a></li>
                         {{-- <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -99,9 +99,16 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('profil', Auth::user()->nama_akun) }}">Akun</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="/peternak/dataternak">Data Ternak</a></li>
                             <li><a class="dropdown-item" href="/peternak/datalaporan">Data Laporan</a></li>
-                            <li><a class="dropdown-item" href="/peternak/dataproduk">Data Produk</a></li>
+                            <li><a class="dropdown-item" href="/peternak/dataproduk">Jual/Beli Hasil Ternak</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/dkpp/datajadwal">Penjadwalan Ternak</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

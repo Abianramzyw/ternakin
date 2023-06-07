@@ -7,7 +7,7 @@
                 <h1 class="mb-3"> {{ $ternaks->id }}</h1>
                 <p>Nama Peternak <a href="/dataternak?user={{ $ternaks->user->nama_akun }}" class="text-decoration-none">
                         {{ $ternaks->user->nama_akun }} </a> </a> Dari Jenis <a
-                        href="/dataternak?jenisternak={{ $ternaks->jenisternak->slug }}"
+                        href="/dataternak?jenisternak={{ $ternaks->jenisternak->id }}"
                         class="text-decoration-none">{{ $ternaks->jenisternak->nama_jenis_ternak }}</a>
                 </p>
                 <h5>Jenis : {{ $ternaks->jenisternak->nama_jenis_ternak }}</h5>
@@ -28,7 +28,7 @@
                     Deskripsi : {!! $ternaks->deskripsi_tambahan !!}
                 </article>
 
-                <h5>Jadwal {{ $ternaks->jadwalternak_juduljadwal->nama_judul_jadwal }}</h5>
+                {{-- <h5>Jadwal {{ $ternaks->jadwalternak_juduljadwal->nama_judul_jadwal }}</h5> --}}
 
                 <a href="/dataternak">Kembali</a>
             </div>

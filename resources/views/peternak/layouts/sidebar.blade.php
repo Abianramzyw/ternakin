@@ -24,7 +24,7 @@
                 <a class="nav-link {{ Request::is('peternak/dataproduk*') ? 'active' : '' }}"
                     href="/peternak/dataproduk">
                     <span data-feather="archive" class="align-text-bottom"></span>
-                    Data Produk </a>
+                    Jual/Beli Hasil Ternak </a>
             </li>
         </ul>
     </div>

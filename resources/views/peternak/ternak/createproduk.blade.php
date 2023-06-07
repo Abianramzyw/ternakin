@@ -45,7 +45,7 @@
                     @enderror
                         </div>
                     <div class="mb-3">
-                        <label for="harga_produk" class="form-label">Harga</label>
+                        <label for="harga_produk" class="form-label">Harga Produk</label>
                         <input type="text"
                             class="form-control @error('harga_produk') is-invalid
                 @enderror"
@@ -55,7 +55,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="stok_produk" class="form-label">Stok</label>
+                        <label for="stok_produk" class="form-label">Stok Produk</label>
                         <input type="text"
                             class="form-control @error('stok_produk') is-invalid
                 @enderror" id="stok_produk"

@@ -3,7 +3,7 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-lg-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">
-            Data Jadwal
+            Penjadwalan Ternak
         </h1>
     </div>
 
@@ -42,7 +42,7 @@
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0"
-                                    onclick="return confirm('Yakin untuk menghapus data?')"><span
+                                    onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><span
                                         data-feather='x-circle'></span></button>
                             </form>
                         </td>

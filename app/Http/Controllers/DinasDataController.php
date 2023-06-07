@@ -17,6 +17,10 @@ class DinasDataController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->role_id != '3') {
+            abort(403);
+        }
+
         return view('dkpp.dinas.datajadwal', [
             'jadwals' => Penjadwalanternak::where('user_id', auth()->user()->id)->get()
         ]);

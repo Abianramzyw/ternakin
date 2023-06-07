@@ -10,8 +10,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dkpp/datajadwal*') ? 'active' : '' }}" href="/dkpp/datajadwal">
                     <span data-feather="book" class="align-text-bottom"></span>
-                    Data Jadwal
-                </a>
+                    Penjadwalan Ternak </a>
             </li>
         </ul>
     </div>

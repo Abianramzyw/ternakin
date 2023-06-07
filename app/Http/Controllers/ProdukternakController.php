@@ -15,7 +15,7 @@ class ProdukternakController extends Controller
      */
     public function index()
     {
-        return view('produkternak', [
+        return view('toko.produkternak', [
             'title' => 'Halaman Produk Ternak',
             "produkternaks" => Produkternak::all()
         ]);
