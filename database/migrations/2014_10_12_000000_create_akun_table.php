@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('nama_akun')->unique();
             $table->string('email_akun')->unique();
             $table->string('alamat_akun');
-            $table->string('password_akun');
+            $table->string('password');
             $table->foreignId('role_id');
             // $table->string('slug')->unique();
             $table->timestamps();

@@ -8,52 +8,54 @@
     </div>
 
     <div class="col-lg-7">
-        <form method="post" action="/peternak/dataternak?{{ $datalaporans->id }}" class="mb-5"
+        <form method="post" action="{{ route('datalaporan.update', $datalaporans->id) }}" class="mb-5"
             enctype="multipart/form-data">
             @method('put')
             @csrf
-            <div class="mb-3">
-                <label for="nama_pemilik" class="form-label">Tanggal
-                    </label>
-                <input type="text" class="form-control @error('nama_pemilik') is-invalid
-                @enderror"
-                    id="nama_pemilik" name="nama_pemilik" required autofocus
-                    value="{{ old('nama_pemilik', $datalaporans->id) }}"
-                    @error('nama_pemilik')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                    </div>
+                <div class="mb-3">
+                    <label for="tanggal_progress" class="form-label">Tanggal</label>
+                    <input type="date" class="form-control @error('tanggal_progress') is-invalid
+                    @enderror"
+                        id="tanggal_progress" name="tanggal_progress" required value="{{ old('tanggal_progress', $datalaporans->tanggal_progress) }}">
+                    @error('tanggal_progress')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div class="mb-3">
                     <label for="berat_ternak" class="form-label">Berat</label>
-                    <input type="text" class="form-control @error('berat_ternak') is-invalid
-                @enderror"
-                        id="berat_ternak" name="berat_ternak" required
-                        value="{{ old('berat_ternak', $datalaporans->berat_ternak) }}">
+                    <input type="number" step="0.01" class="form-control @error('berat_ternak') is-invalid
+                    @enderror"
+                        id="berat_ternak" name="berat_ternak" required value="{{ old('berat_ternak', $datalaporans->berat_ternak) }}">
                     @error('berat_ternak')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="jenis_ternak" class="form-label">Kondisi</label>
-                    <input type="text" class="form-control @error('jenis_ternak') is-invalid
-                @enderror"
-                        id="jenis_ternak" name="jenis_ternak" required
-                        value="{{ old('jenis_ternak', $datalaporans->jenis_ternak) }}">
-                    @error('jenis_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <label for="kondisiternak_id" class="form-label">Kondisi</label>
+                    <select class="form-select" name="kondisiternak_id">
+                        <option selected>Pilih Kondisi</option>
+                        @foreach ($kondisiternak as $kondisiternak)
+                            @if (old('kondisiternak_id', $datalaporans->kondisiternak_id) == $kondisiternak->id)
+                                <option value="{{ $kondisiternak->id }}" selected>{{ $kondisiternak->nama_kondisi_ternak }}
+                                </option>
+                            @else
+                                <option value="{{ $kondisiternak->id }}">{{ $kondisiternak->nama_kondisi_ternak }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <label for="jenisternak_id" class="form-label">Hasil Ternak</label>
-                    <select class="form-select" name="jenisternak_id">
-                        <option selected></option>
-                        {{-- @foreach ($jenisternak as $jenis) --}}
-                            {{-- @if (old('jenisternak_id', $datalaporans->jenisternak_id) == $jenis->id)
-                                <option value="{{ $jenis->id }}" selected>{{ $jenis->nama_jenis_ternak }}</option>
+                    <label for="hasilternak_id" class="form-label">Hasil Ternak</label>
+                    <select class="form-select" name="hasilternak_id" required>
+                        <option selected>Pilih Ternak</option>
+                        @foreach ($hasilternak as $hasilternak)
+                            @if (old('hasilternak_id', $datalaporans->hasilternak_id) == $hasilternak->id)
+                                <option value="{{ $hasilternak->id }}" selected>{{ $hasilternak->nama_hasil_ternak }}
+                                </option>
                             @else
-                                <option value="{{ $jenis->id }}">{{ $jenis->nama_jenis_ternak }}</option>
-                            @endif --}}
-                        {{-- @endforeach --}}
+                                <option value="{{ $hasilternak->id }}">{{ $hasilternak->nama_hasil_ternak }}</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
                 {{-- <div class="mb-3">
@@ -80,7 +82,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="status_terjual" class="form-label">Status Terjual</label>
                     <input type="text" class="form-control @error('status_terjual') is-invalid
                 @enderror"
@@ -89,15 +91,15 @@
                     @error('status_terjual')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div>
+                </div> -->
                 <div class="mb-3">
-                    <label for="deskripsi_tambahan" class="form-label">Deskripsi</label>
-                    @error('deskripsi_tambahan')
+                    <label for="deskripsi_progress" class="form-label">Deskripsi</label>
+                    @error('deskripsi_progress')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
-                    <input id="deskripsi_tambahan" type="hidden" name="deskripsi_tambahan"
-                        value="{{ old('deskripsi_tambahan', $datalaporans->dekripsi_tambahan) }}">
-                    <trix-editor input="deskripsi_tambahan"></trix-editor>
+                    <input id="deskripsi_progress" type="hidden" name="deskripsi_progress"
+                        value="{{ old('deskripsi_progress', $datalaporans->deskripsi_progress) }}">
+                    <trix-editor input="deskripsi_progress"></trix-editor>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Simpan</button>

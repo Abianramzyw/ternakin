@@ -98,7 +98,7 @@
                             {{ auth()->user()->nama_akun }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('profil', Auth::user()->nama_akun) }}">Akun</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profil', Auth::user()->id) }}">Akun</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
