@@ -9,7 +9,7 @@
 
     <div class="col-lg-7">
         {{-- <form method="post" action="{{ route('dataternak.update', ['dataternak' => $dataternak->id]) }}" class="mb-5"> --}}
-        <form method="post" action="{{ route("dataternak.update", $dataternak->id) }}" class="mb-5" enctype="multipart/form-data">
+        <form method="post" action="/peternak/dataternak?{{ $dataternak->id }}" class="mb-5">
             @method('put')
             @csrf
             <div class="mb-3">
@@ -65,7 +65,8 @@
                         <option selected>Pilih Status Terjual</option>
                         @foreach ($statusterjual as $statusterjual)
                             @if (old('statusterjual_id', $dataternak->statusterjual_id) == $statusterjual->id)
-                                <option value="{{ $statusterjual->id }}" selected>{{ $statusterjual->nama_status_terjual }}
+                                <option value="{{ $statusterjual->id }}" selected>
+                                    {{ $statusterjual->nama_status_terjual }}
                                 </option>
                             @else
                                 <option value="{{ $statusterjual->id }}">{{ $statusterjual->nama_status_terjual }}

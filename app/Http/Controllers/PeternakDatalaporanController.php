@@ -51,7 +51,7 @@ class PeternakDatalaporanController extends Controller
         // return $request;
         $validatedData = $request->validate([
             'tanggal_progress' => 'required',
-            'berat_ternak' => 'required|between:0,999.99',
+            'berat_ternak' => 'required',
             'kondisiternak_id' => 'required',
             'hasilternak_id' => 'required',
             'deskripsi_progress' => 'required',
@@ -93,8 +93,6 @@ class PeternakDatalaporanController extends Controller
     {
         return view('peternak.ternak.editlaporan', [
             'datalaporans' => $datalaporan,
-            'kondisiternak' => Kondisiternak::all(),
-            'hasilternak' => Hasilternak::all(),
         ]);
     }
 
@@ -107,29 +105,7 @@ class PeternakDatalaporanController extends Controller
      */
     public function update(Request $request, Laporanprogress $datalaporan)
     {
-        $validatedData = $request->validate([
-            'tanggal_progress' => 'required',
-            'berat_ternak' => 'required|between:0,999.99',
-            'kondisiternak_id' => 'required|numeric',
-            'hasilternak_id' => 'required|numeric',
-            'deskripsi_progress' => 'required',
-            'image' => 'image|file|max:2048',
-            // 'statuskesehatan_id' => 'required',
-        ]);
-        
-        if ($request->file('image')) {
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['image'] = $request->file('image')->store('foto-ternak');
-        }
-
-        $validatedData['user_id'] = auth()->user()->id;
-
-        Laporanprogress::where('id', $datalaporan->id)
-            ->update($validatedData);
-
-        return redirect('/peternak/datalaporan')->with('success', 'Data Laporan Berhasil Diubah!');
+        //
     }
 
     /**
