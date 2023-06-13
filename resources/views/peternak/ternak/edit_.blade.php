@@ -8,7 +8,7 @@
     </div>
 
     <div class="col-lg-7">
-        <form method="post" action="/peternak/dataternak?{{ $dataternak->nama_pemilik }}" class="mb-5"
+        <form method="post" action="{{ route('dataternak.update', $dataternak->id) }}" class="mb-5"
             enctype="multipart/form-data">
             @method('put')
             @csrf

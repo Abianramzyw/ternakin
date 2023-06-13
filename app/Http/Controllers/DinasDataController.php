@@ -82,6 +82,7 @@ class DinasDataController extends Controller
     {
         return view('dkpp.dinas.edit', [
             'datajadwal' => $datajadwal,
+            'juduljadwal' => Juduljadwal::all(),
         ]);
     }
 
@@ -94,7 +95,17 @@ class DinasDataController extends Controller
      */
     public function update(Request $request, Penjadwalanternak $datajadwal)
     {
-        //
+        $validatedData = $request->validate([
+            'tanggal_jadwal' => 'required',
+            'dokter' => 'required',
+            'juduljadwal_id' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Penjadwalanternak::where('id', $datajadwal->id)->update($validatedData);
+
+        return redirect('/dkpp/datajadwal')->with('success', 'Data Produk Berhasil Diubah!');
     }
 
     /**

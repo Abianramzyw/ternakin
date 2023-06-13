@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('user_role_id');
             $table->foreignId('dataproduk_id');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

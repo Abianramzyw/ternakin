@@ -5,7 +5,7 @@
         <div class="row justify-content-center mb-5">
             <div class="col-md-8">
                 <h1>Edit</h1>
-                <form action="{{ route('profil.update') }}" method="post">
+                <form action="{{ route('profil.update', $user->id) }}" method="post">
                     @method('put')
                     @csrf
                     <div class="mb-3">
@@ -27,18 +27,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="email_akun" class="form-label">Email</label>
-                        <input class="form-control @error('email_akun') is-invalid @enderror" type="text"
-                            name="email_akun" id="email_akun" required
-                            value="{{ old('email_akun', $user->email_akun) }}">
+                        <input class="form-control @error('email_akun') is-invalid @enderror" type="email"
+                            name="email_akun" id="email_akun" required value="{{ old('email_akun', $user->email_akun) }}">
                         @error('email_akun')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="password_akun" class="form-label">Password</label>
-                        <input class="form-control @error('password_akun') is-invalid @enderror" type="password_akun" name="password_akun"
-                            id="password_akun" required value="{{ old('password_akun', $user->password_akun) }}">
-                        @error('password_akun')
+                        <label for="password" class="form-label">Password</label>
+                        <input class="form-control @error('password') is-invalid @enderror" type="password" name="password"
+                            id="password" required value="{{ old('password', $user->password) }}">
+                        @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

@@ -22,7 +22,7 @@ class LaporanprogressFactory extends Factory
             'deskripsi_progress' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn($p) => "<p>$p<p>")->implode(''),
             // 'statuskesehatan_id' => mt_rand(1, 3),
             'kondisiternak_id' => mt_rand(1, 2),
-            'hasilternak_id' => mt_rand(1, 3),
+            'hasilternak_id' => mt_rand(1, 2),
             'user_id' => mt_rand(1, 5),
         ///////cobacoba/////
         // 'slug' => $this->faker->name(),

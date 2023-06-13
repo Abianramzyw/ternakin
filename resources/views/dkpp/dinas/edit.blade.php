@@ -8,42 +8,49 @@
     </div>
 
     <div class="col-lg-7">
-        <form method="post" action="/peternak/dataproduk?{{ $datajadwal->id }}" class="mb-5" enctype="multipart/form-data">
+        <form method="post" action="{{ route('datajadwal.update', $datajadwal->id) }}" class="mb-5"
+            enctype="multipart/form-data">
+            {{-- <form method="post" action="/peternak/dataproduk?{{ $datajadwal->id }}" class="mb-5" enctype="multipart/form-data"> --}}
             @method('put')
             @csrf
             <div class="mb-3">
-                <label for="nama_pemilik" class="form-label">Tanggal
-                </label>
-                <input type="text" class="form-control @error('nama_pemilik') is-invalid
-                @enderror"
-                    id="nama_pemilik" name="nama_pemilik" required autofocus
-                    value="{{ old('nama_pemilik', $datajadwal->id) }}"
-                    @error('nama_pemilik')
+                <label for="juduljadwal_id" class="form-label">Kondisi</label>
+                <select class="form-select" name="juduljadwal_id">
+                    <option selected>Pilih Jadwal</option>
+                    @foreach ($juduljadwal as $juduljadwal)
+                        @if (old('juduljadwal_id', $datajadwal->juduljadwal_id) == $juduljadwal->id)
+                            <option value="{{ $juduljadwal->id }}" selected>
+                                {{ $juduljadwal->nama_judul_jadwal }}
+                            </option>
+                        @else
+                            <option value="{{ $juduljadwal->id }}">{{ $juduljadwal->nama_judul_jadwal }}
+                            </option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tanggal_jadwal" class="form-label">Tanggal Jadwal</label>
+                <input type="datetime-local"
+                    class="form-control @error('tanggal_jadwal') is-invalid
+                @enderror" id="tanggal_jadwal"
+                    name="tanggal_jadwal" required value="{{ old('tanggal_jadwal', $datajadwal->tanggal_jadwal) }}"
+                    @error('tanggal_jadwal')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
                     </div>
-                <div class="mb-3">
-                    <label for="berat_ternak" class="form-label">Dokter</label>
-                    <input type="text" class="form-control @error('berat_ternak') is-invalid
+            </div>
+            <div class="mb-3">
+                <label for="dokter" class="form-label">Dokter</label>
+                <input type="text" class="form-control @error('dokter') is-invalid
                 @enderror"
-                        id="berat_ternak" name="berat_ternak" required
-                        value="{{ old('berat_ternak', $datajadwal->berat_ternak) }}">
-                    @error('berat_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="jenis_ternak" class="form-label">Judul</label>
-                    <input type="text" class="form-control @error('jenis_ternak') is-invalid
-                @enderror"
-                        id="jenis_ternak" name="jenis_ternak" required
-                        value="{{ old('jenis_ternak', $datajadwal->jenis_ternak) }}">
-                    @error('jenis_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
- 
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                    id="dokter" name="dokter" required value="{{ old('dokter', $datajadwal->dokter) }}">
+                @error('dokter')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
 

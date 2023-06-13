@@ -25,7 +25,7 @@ class DatatransaksiFactory extends Factory
             'user_role_id' => mt_rand(1, 3),
             'dataproduk_id' => mt_rand(1, 3),
             ////coba coba///
-            'slug' => $this->faker->name(),
+            // 'slug' => $this->faker->name(),
         ];
     }
 }

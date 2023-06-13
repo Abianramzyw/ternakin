@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('kategorihewanproduks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kategori_hewan');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

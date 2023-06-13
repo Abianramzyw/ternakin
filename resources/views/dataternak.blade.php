@@ -5,9 +5,9 @@
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/dataternak">
-                @if (request('jenisternak'))
+                {{-- @if (request('jenisternak'))
                     <input type="hidden" name="jenisternak" value="{{ request('jenisternak') }}">
-                @endif
+                @endif --}}
                 @if (request('user'))
                     <input type="hidden" name="user" value="{{ request('user') }}">
                 @endif
@@ -37,10 +37,11 @@
                 <p>
                     <small class="text-muted">
                         Peternak <a href="/dataternak?user={{ $ternaks[0]->user->nama_akun }}" class="text-decoration-none">
-                            {{ $ternaks[0]->user->nama_akun }} </a> Dari Jenis <a
-                            href="/dataternak?jenisternak={{ $ternaks[0]->jenisternak->id }}"
-                            class="text-decoration-none">{{ $ternaks[0]->jenisternak->nama_jenis_ternak }}</a>
-                        {{ $ternaks[0]->created_at->diffForHumans() }}
+                            {{ $ternaks[0]->user->nama_akun }} </a> Dari Jenis
+                        {{ $ternaks[0]->jenisternak->nama_jenis_ternak }}
+                        {{-- <a
+                            href="/dataternak?jenisternak={{ $ternaks[0]->jenisternak->id }}"class="text-decoration-none">{{ $ternaks[0]->jenisternak->nama_jenis_ternak }}</a>
+                        {{ $ternaks[0]->created_at->diffForHumans() }} --}}
                     </small>
                 </p>
                 <p class="card-text">Status : {{ $ternaks[0]->statusterjual->nama_status_terjual }}</p>
@@ -56,9 +57,10 @@
                 @foreach ($ternaks->skip(1) as $ternak)
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <div class="position-absolute px-3 py-1" style="background-color:rgba(0, 0, 0, 0.4)"><a
-                                    href="/dataternak?jenisternak={{ $ternak->jenisternak->id }}"
-                                    class="text-white text-decoration-none">{{ $ternak->jenisternak->nama_jenis_ternak }}</a>
+                            <div class="position-absolute px-3 py-1" style="background-color:rgba(0, 0, 0, 0.4)">
+                                {{-- <a href="/dataternak?jenisternak={{ $ternak->jenisternak->id }}" class="text-white text-decoration-none">{{ $ternak->jenisternak->nama_jenis_ternak }}</a> --}}
+                                <h5 class="text-white text-decoration-none">{{ $ternak->jenisternak->nama_jenis_ternak }}
+                                </h5>
                             </div>
                             @if ($ternak->image)
                                 <img src="{{ asset('storage/' . $ternak->image) }}"

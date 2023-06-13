@@ -93,6 +93,8 @@ class PeternakDatalaporanController extends Controller
     {
         return view('peternak.ternak.editlaporan', [
             'datalaporans' => $datalaporan,
+            'kondisiternak' => Kondisiternak::all(),
+            'hasilternak' => Hasilternak::all(),
         ]);
     }
 
@@ -105,7 +107,27 @@ class PeternakDatalaporanController extends Controller
      */
     public function update(Request $request, Laporanprogress $datalaporan)
     {
-        //
+        $validatedData = $request->validate([
+            'berat_ternak' => 'required',
+            'tanggal_progress' => 'required',
+            'deskripsi_progress' => 'required',
+            'image' => 'image|file|max:2048',
+            'kondisiternak_id' => 'required',
+            'hasilternak_id' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('foto-ternak');
+        }
+
+        Laporanprogress::where('id', $datalaporan->id)->update($validatedData);
+
+        return redirect('/peternak/datalaporan')->with('success', 'Data Laporan Berhasil Diubah!');
     }
 
     /**

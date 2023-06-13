@@ -45,14 +45,14 @@ class LaporanprogressController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Laporanprogress  $laporanprogresses
+     * @param  \App\Models\Laporanprogress  $laporanprogress
      * @return \Illuminate\Http\Response
      */
-    public function show(Laporanprogress $laporanprogresses)
+    public function show(Laporanprogress $laporanprogress)
     {
         return view('laporan', [
             "title" => "Halaman Laporan",
-            'laporanprogress' => $laporanprogresses
+            'laporanprogress' => $laporanprogress
             // "datatransaksis" => Datatransaksi::with(['pembayarantransaksi', 'dataproduk'])->latest()->get()
 
         ]);
@@ -61,10 +61,10 @@ class LaporanprogressController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Laporanprogress  $laporanprogresses
+     * @param  \App\Models\Laporanprogress  $laporanprogress
      * @return \Illuminate\Http\Response
      */
-    public function edit(Laporanprogress $laporanprogresses)
+    public function edit(Laporanprogress $laporanprogress)
     {
         //
     }
@@ -73,10 +73,10 @@ class LaporanprogressController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateLaporanprogressRequest  $request
-     * @param  \App\Models\Laporanprogress  $laporanprogresses
+     * @param  \App\Models\Laporanprogress  $laporanprogress
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLaporanprogressRequest $request, Laporanprogress $laporanprogresses)
+    public function update(UpdateLaporanprogressRequest $request, Laporanprogress $laporanprogress)
     {
         //
     }
@@ -84,10 +84,10 @@ class LaporanprogressController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Laporanprogress  $laporanprogresses
+     * @param  \App\Models\Laporanprogress  $laporanprogress
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Laporanprogress $laporanprogresses)
+    public function destroy(Laporanprogress $laporanprogress)
     {
         //
     }

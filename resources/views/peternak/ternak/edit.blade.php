@@ -3,13 +3,14 @@
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">
-            Membuat Data Baru
+            Mengubah Data
         </h1>
     </div>
 
     <div class="col-lg-7">
         {{-- <form method="post" action="{{ route('dataternak.update', ['dataternak' => $dataternak->id]) }}" class="mb-5"> --}}
-        <form method="post" action="/peternak/dataternak?{{ $dataternak->id }}" class="mb-5">
+        {{-- <form method="post" action="/peternak/dataternak?{{ $dataternak->id }}" class="mb-5"> --}}
+        <form method="post" action="{{ route("dataternak.update", $dataternak->id) }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">

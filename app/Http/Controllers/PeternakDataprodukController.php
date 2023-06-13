@@ -90,6 +90,7 @@ class PeternakDataprodukController extends Controller
     {
         return view('peternak.ternak.editproduk', [
             'dataproduk' => $dataproduk,
+            'kategorihewanproduk' => Kategorihewanproduk::all(),
         ]);
     }
 
@@ -102,7 +103,27 @@ class PeternakDataprodukController extends Controller
      */
     public function update(Request $request, Produkternak $dataproduk)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_produk' => 'required',
+            'kategori_produk' => 'required',
+            'harga_produk' => 'required',
+            'deskripsi_produk' => 'required',
+            'image' => 'image|file|max:2048',
+            'kategorihewanproduk_id' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('foto-ternak');
+        }
+
+        Produkternak::where('id', $dataproduk->id)->update($validatedData);
+
+        return redirect('/peternak/dataproduk')->with('success', 'Data Produk Berhasil Diubah!');
     }
 
     /**

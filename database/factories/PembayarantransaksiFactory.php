@@ -22,7 +22,7 @@ class PembayarantransaksiFactory extends Factory
             'biaya_pengiriman' => mt_rand(1000, 100000),
             'biaya_admin' => mt_rand(1000, 100000),
             //////cobacoba/////
-            'slug' => $this->faker->name(),
+            // 'slug' => $this->faker->name(),
         ];
     }
 }

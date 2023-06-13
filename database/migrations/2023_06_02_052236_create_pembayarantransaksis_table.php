@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('kuantitas_produk');
             $table->integer('biaya_pengiriman');
             $table->integer('biaya_admin');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@
             <div class="mb-3">
                 <div class="mb-3">
                     <label for="tanggal_jadwal" class="form-label">Tanggal</label>
-                    <input type="date"
+                    <input type="datetime-local"
                         class="form-control @error('tanggal_jadwal') is-invalid
                     @enderror"
                         id="tanggal_jadwal" name="tanggal_jadwal" required value="{{ old('tanggal_jadwal') }}">

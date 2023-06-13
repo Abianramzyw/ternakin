@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('statuskesehatans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_status_kesehatan');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

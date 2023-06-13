@@ -45,10 +45,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dataternak', [DataternakController::class, 'index']);
-
-Route::get('/dataternak/{ternak:id}', [DataternakController::class, 'show']);
-
 /////////////jenisternak///////////
 Route::get('/jenisternak', function () {
     return view('jenisternak', [
@@ -99,43 +95,9 @@ Route::get('/juduljadwal', function () {
     ]);
 });
 
-// Route::get('/jenisternak/{jenisternak:nama_jenis_ternak}', function (Jenisternak $jenisternak) {
-//     return view('dataternak', [
-//         'title' => "Halaman Jenis Hewan : $jenisternak->nama_jenis_ternak",
-//         'ternaks' => $jenisternak->ternaks,
-//         // 'jenisternak' => $jenisternak->nama_jenis_ternak
-//     ]);
-// });
+Route::get('/dataternak', [DataternakController::class, 'index']);
 
-// Route::get('/namapemilik/{namapemilik:nama_akun}', function (User $namapemilik) {
-//     return view('dataternak', [
-//         'title' => "Ternak Milik : $namapemilik->nama_akun ",
-//         'ternaks' => $namapemilik->ternaks->load('jenisternak', 'user'),
-//     ]);
-// });
-
-/////////////penjadwalan ternak/////////////////////
-
-
-// Route::get('/penjadwalanternak', function () {
-//     return view('penjadwalanternak', [
-//         "title" => 'Halaman Penjadwalan Ternak',
-//         'penjadwalanternaks' => Penjadwalanternak::all()
-//     ]);
-// });
-
-// Route::get('/penjadwalan', function () {
-//     return view('penjadwalan', [
-//         "title" => 'Halaman Penjadwalan',
-//         'penjadwalan' => Penjadwalanternak::all()
-//     ]);
-// });
-// Route::get('/penjadwalanternak', function () {
-//     return view('penjadwalanternak', [
-//         "title" => "Halaman Penjadwalan Ternak",
-//     ]);
-// });
-
+Route::get('/dataternak/{ternak:id}', [DataternakController::class, 'show']);
 /////////////penjadwalan ternak/////////////////////
 
 Route::get('/penjadwalanternak', [PenjadwalanternakController::class, 'index']);
@@ -146,15 +108,7 @@ Route::get('/penjadwalanternak/{penjadwalanternak:id}', [PenjadwalanternakContro
 
 Route::get('/laporanprogress', [LaporanprogressController::class, 'index']);
 
-Route::get('/laporanprogress/{laporanprogresses:id}', [LaporanprogressController::class, 'show']);
-// Route::get('/laporanprogress', function () {
-//     return view('laporanprogress', [
-//         "title" => "Halaman Laporan Progress",
-//         // "active" => "Beranda"
-//     ]);
-// });
-
-/////////////laporan progress////////////////////
+Route::get('/laporanprogress/{laporanprogress:id}', [LaporanprogressController::class, 'show']);
 
 /////////////produk ternak////////////////////
 
@@ -162,14 +116,6 @@ Route::get('/toko/produkternak', [ProdukternakController::class, 'index']);
 
 Route::get('/toko/produkternak/{produkternak:id}', [ProdukternakController::class, 'show']);
 
-// Route::get('/hasilternak', function () {
-//     return view('hasilternak', [
-//         "title" => "Halaman Hasil Ternak",
-//         // "active" => "Beranda"
-//     ]);
-// });
-
-/////////////produk ternak////////////////////
 
 ///////////data transaksi///////////////
 Route::get('/datatransaksi', [DatatransaksiController::class, 'index']);
@@ -181,17 +127,12 @@ Route::get('/datatransaksi/{datatransaksi:id}', [DatatransaksiController::class,
 Route::get('/pembayarantransaksi', [PembayarantransaksiController::class, 'index']);
 
 Route::get('/pembayarantransaksi/{pembayarantransaksi:id}', [PembayarantransaksiController::class, 'show']);
-//////////////pembayaran transaksi/////////////
-
-// Route::get('/profile', [ProfileController::class, 'index']);
-
-// Route::get('/profile', [ProfileController::class, 'update']);
 
 Route::get('/edit', [UserController::class, 'edit'])->name('profil.edit')->middleware('auth');
 
 Route::put('/update', [UserController::class, 'update'])->name('profil.update')->middleware('auth');
 
-Route::get('/profil/{user:nama_akun}', UserController::class)->name('profil')->middleware('auth');
+Route::get('/profil/{user:id}', UserController::class)->name('profil')->middleware('auth');
 
 Route::get('/masuk', [SigninController::class, 'index'])->name('masuk')->middleware('guest');
 

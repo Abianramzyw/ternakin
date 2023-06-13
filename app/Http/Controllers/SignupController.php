@@ -29,8 +29,6 @@ class SignupController extends Controller
 
         User::create($validatedData);
 
-        // $request->session()->flash('sukses', 'Daftar akun berhasil! Silahkan masuk.');
-
         return redirect('/dataternak')->with('sukses', 'Daftar akun berhasil! Silahkan masuk.');
     }
 }

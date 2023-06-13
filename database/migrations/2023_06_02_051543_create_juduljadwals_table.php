@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('juduljadwals', function (Blueprint $table) {
             $table->id();
             $table->string('nama_judul_jadwal');
-            $table->string('slug')->unique();
+            // $table->string('slug')->unique();
             $table->timestamps();
         });
     }

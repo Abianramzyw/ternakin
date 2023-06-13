@@ -91,96 +91,96 @@ class DatabaseSeeder extends Seeder
         ///////////////////////////////////////////////////////////
         Jenisternak::create([
             'nama_jenis_ternak' => 'Kambing',
-            'slug' => 'kambing'
+            // 'slug' => 'kambing'
         ]);
         Jenisternak::create([
             'nama_jenis_ternak' => 'Domba',
-            'slug' => 'domba'
+            // 'slug' => 'domba'
         ]);
         ///////////////////////////////////////////////////////////
         Statusterjual::create([
             'nama_status_terjual' => 'Ada',
-            'slug' => 'ada'
+            // 'slug' => 'ada'
         ]);
         Statusterjual::create([
             'nama_status_terjual' => 'Terjual',
-            'slug' => 'terjual'
+            // 'slug' => 'terjual'
         ]);
         ///////////////////////////////////////////////////////////
         Role::create([
             'nama_role' => 'User',
-            'slug' => 'user'
+            // 'slug' => 'user'
         ]);
         Role::create([
             'nama_role' => 'Peternak',
-            'slug' => 'peternak'
+            // 'slug' => 'peternak'
         ]);
         Role::create([
             'nama_role' => 'Dinas Ketahanan Pangan dan Peternakan',
-            'slug' => 'dinas-ketahanan-pangan-dan-ternak'
+            // 'slug' => 'dinas-ketahanan-pangan-dan-ternak'
         ]);
         ///////////////////////////////////////////////////////////
         Jeniskelamin::create([
             'nama_jenis_kelamin' => 'Jantan',
-            'slug' => 'jantan'
+            // 'slug' => 'jantan'
         ]);
 
         Jeniskelamin::create([
             'nama_jenis_kelamin' => 'Betina',
-            'slug' => 'betina'
+            // 'slug' => 'betina'
         ]);
         ///////////////////////////////////////////////////////////
         Juduljadwal::create([
             'nama_judul_jadwal' => 'Vaksinasi',
-            'slug' => 'vaksinasi'
+            // 'slug' => 'vaksinasi'
         ]);
         Juduljadwal::create([
             'nama_judul_jadwal' => 'Masa Subur',
-            'slug' => 'masa-subur'
+            // 'slug' => 'masa-subur'
         ]);
         Juduljadwal::create([
             'nama_judul_jadwal' => 'Pemeriksaan Rutin',
-            'slug' => 'pemeriksaan-rutin'
+            // 'slug' => 'pemeriksaan-rutin'
         ]);
         ///////////////////////////////////////////////////////////
         Hasilternak::create([
             'nama_hasil_ternak' => 'Kambing',
-            'slug' => 'kambing'
+            // 'slug' => 'kambing'
         ]);
         Hasilternak::create([
             'nama_hasil_ternak' => 'Domba',
-            'slug' => 'domba'
+            // 'slug' => 'domba'
         ]);
         ///////////////////////////////////////////////////////////
         Statuskesehatan::create([
             'nama_status_kesehatan' => 'Vaksinasi',
-            'slug' => 'vaksinasi'
+            // 'slug' => 'vaksinasi'
         ]);
         Statuskesehatan::create([
             'nama_status_kesehatan' => 'Masa Subur',
-            'slug' => 'masa-subur'
+            // 'slug' => 'masa-subur'
         ]);
         Statuskesehatan::create([
             'nama_status_kesehatan' => 'Pemeriksaan Rutin',
-            'slug' => 'pemeriksaan-rutin'
+            // 'slug' => 'pemeriksaan-rutin'
         ]);
         ///////////////////////////////////////////////////////////
         Kondisiternak::create([
             'nama_kondisi_ternak' => 'Sehat',
-            'slug' => 'sehat'
+            // 'slug' => 'sehat'
         ]);
         Kondisiternak::create([
             'nama_kondisi_ternak' => 'Sakit',
-            'slug' => 'sakit'
+            // 'slug' => 'sakit'
         ]);
         ///////////////////////////////////////////////////////////
         Kategorihewanproduk::create([
             'nama_kategori_hewan' => 'Kambing',
-            'slug' => 'kambing'
+            // 'slug' => 'kambing'
         ]);
         Kategorihewanproduk::create([
             'nama_kategori_hewan' => 'Domba',
-            'slug' => 'domba'
+            // 'slug' => 'domba'
         ]);
         ///////////////////////////////////////////////////////////
         Dataternak::factory(50)->create();

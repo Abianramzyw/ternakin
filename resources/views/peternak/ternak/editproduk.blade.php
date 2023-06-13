@@ -8,88 +8,92 @@
     </div>
 
     <div class="col-lg-7">
-        <form method="post" action="/peternak/dataproduk?{{ $dataproduk->id }}" class="mb-5" enctype="multipart/form-data">
+        {{-- <form method="post" action="/peternak/dataproduk?{{ $dataproduk->id }}" class="mb-5" enctype="multipart/form-data"> --}}
+        <form method="post" action="{{ route('dataproduk.update', $dataproduk->id) }}" class="mb-5"
+            enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">
-                <label for="nama_pemilik" class="form-label">Nama Produk
-                </label>
-                <input type="text" class="form-control @error('nama_pemilik') is-invalid
-                @enderror"
-                    id="nama_pemilik" name="nama_pemilik" required autofocus
-                    value="{{ old('nama_pemilik', $dataproduk->id) }}"
-                    @error('nama_pemilik')
+                <label for="nama_produk" class="form-label">Nama Produk</label>
+                <input type="text" class="form-control @error('nama_produk') is-invalid
+            @enderror"
+                    id="nama_produk" name="nama_produk" required value="{{ old('nama_produk', $dataproduk->nama_produk) }}">
+                @error('nama_produk')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-                    </div>
-                <div class="mb-3">
-                    <label for="berat_ternak" class="form-label">Harga Produk</label>
-                    <input type="text" class="form-control @error('berat_ternak') is-invalid
-                @enderror"
-                        id="berat_ternak" name="berat_ternak" required
-                        value="{{ old('berat_ternak', $dataproduk->berat_ternak) }}">
-                    @error('berat_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="jenis_ternak" class="form-label">Stok Produk</label>
-                    <input type="text" class="form-control @error('jenis_ternak') is-invalid
-                @enderror"
-                        id="jenis_ternak" name="jenis_ternak" required
-                        value="{{ old('jenis_ternak', $dataproduk->jenis_ternak) }}">
-                    @error('jenis_ternak')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="jenisternak_id" class="form-label">Kategori Hewan</label>
-                    <select class="form-select" name="jenisternak_id">
-                        <option selected></option>
-                        {{-- @foreach ($jenisternak as $jenis) --}}
-                        {{-- @if (old('jenisternak_id', $dataproduk->jenisternak_id) == $jenis->id)
-                                <option value="{{ $jenis->id }}" selected>{{ $jenis->nama_jenis_ternak }}</option>
-                            @else
-                                <option value="{{ $jenis->id }}">{{ $jenis->nama_jenis_ternak }}</option>
-                            @endif --}}
-                        {{-- @endforeach --}}
-                    </select>
-                </div>
-                {{-- <div class="mb-3">
-                <label for="status_terjual" class="form-label">Status Terjual</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Pilih Status</option>
-                    <option value="1">Ada</option>
-                    <option value="2">Terjual</option>
+            </div>
+            <div class="mb-3">
+                <label for="kategorihewanproduk_id" class="form-label">Kategori Hewan</label>
+                <select class="form-select" name="kategorihewanproduk_id">
+                    <option selected>Pilih Kategori</option>
+                    @foreach ($kategorihewanproduk as $kategorihewanproduk)
+                        @if (old('kategorihewanproduk_id', $dataproduk->kategorihewanproduk_id) == $kategorihewanproduk->id)
+                            <option value="{{ $kategorihewanproduk->id }}" selected>
+                                {{ $kategorihewanproduk->nama_kategori_hewan }}
+                            </option>
+                        @else
+                            <option value="{{ $kategorihewanproduk->id }}">{{ $kategorihewanproduk->nama_kategori_hewan }}
+                            </option>
+                        @endif
+                    @endforeach
                 </select>
-            </div> --}}
-                <div class="mb-3">
-                    <label for="image" class="form-label">Foto</label>
-                    <input type="hidden" name="oldImage" value="{{ $dataproduk->image }}">
-                    @if ($dataproduk->image)
-                        <img src="{{ asset('storage/' . $dataproduk->image) }}"
-                            class="img-preview img-fluid mb-3 col-sm-5 d-block">
-                    @else
-                        <img class="img-preview img-fluid mb-3 col-sm-5">
-                    @endif
-                    <input class="form-control  @error('image') is-invalid
+            </div>
+            <div class="mb-3">
+                <label for="kategori_produk" class="form-label">Kategori Produk</label>
+                <input type="text" class="form-control @error('kategori_produk') is-invalid
+            @enderror"
+                    id="kategori_produk" name="kategori_produk" required
+                    value="{{ old('kategori_produk', $dataproduk->kategori_produk) }}">
+                @error('kategori_produk')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="harga_produk" class="form-label">Harga Produk</label>
+                <input type="text" class="form-control @error('harga_produk') is-invalid
+            @enderror"
+                    id="harga_produk" name="harga_produk" required
+                    value="{{ old('harga_produk', $dataproduk->harga_produk) }}">
+                @error('harga_produk')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="stok_produk" class="form-label">Stok Produk</label>
+                <input type="text" class="form-control @error('stok_produk') is-invalid
+            @enderror"
+                    id="stok_produk" name="stok_produk" required
+                    value="{{ old('stok_produk', $dataproduk->stok_produk) }}">
+                @error('harga_produk')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
+                @error('deskripsi_produk')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <input id="deskripsi_produk" type="hidden" name="deskripsi_produk"
+                    value="{{ old('deskripsi_produk', $dataproduk->deskripsi_produk) }}">
+                <trix-editor input="deskripsi_produk"></trix-editor>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Foto</label>
+                <input type="hidden" name="oldImage" value="{{ $dataproduk->image }}">
+                @if ($dataproduk->image)
+                    <img src="{{ asset('storage/' . $dataproduk->image) }}"
+                        class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+                <input class="form-control  @error('image') is-invalid
                 @enderror" type="file"
-                        id="image" name="image" onchange="previewImage">
-                    @error('image')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="deskripsi_tambahan" class="form-label">Deskripsi</label>
-                    @error('deskripsi_tambahan')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
-                    <input id="deskripsi_tambahan" type="hidden" name="deskripsi_tambahan"
-                        value="{{ old('deskripsi_tambahan', $dataproduk->dekripsi_tambahan) }}">
-                    <trix-editor input="deskripsi_tambahan"></trix-editor>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                    id="image" name="image" onchange="previewImage">
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
 

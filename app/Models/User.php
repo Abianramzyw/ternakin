@@ -26,7 +26,7 @@ class User extends Authenticatable
     // protected $fillable = [
     //     'nama_akun',
     //     'email_akun',
-    //     'password_akun',
+    //     'password',
     //     'alamat_akun',
     // ];
     protected $guarded = ['id'];

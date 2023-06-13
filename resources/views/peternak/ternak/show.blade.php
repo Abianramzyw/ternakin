@@ -7,9 +7,9 @@
                 <h1 class="mb-3"> {{ $ternaks->id }}</h1>
 
                 <a href="/peternak/dataternak" class="btn btn-success">Kembali</a>
-                <a href="/peternak/dataternak/{{ $ternaks->slug }}/edit" class="btn btn-warning"><span
+                <a href="/peternak/dataternak/{{ $ternaks->id }}/edit" class="btn btn-warning"><span
                         data-feather="edit"></span> Edit Data</a>
-                <form action="/peternak/dataternak/{{ $ternaks->slug }}" method="post" class="d-inline">
+                <form action="/peternak/dataternak/{{ $ternaks->id }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger" onclick="return confirm('Yakin untuk menghapus data?')"><span
